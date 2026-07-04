@@ -2,8 +2,7 @@ class Solution {
 public:
     int maxArea(vector<int>& height) {
         int max_area=0,current_area,width,current_height;
-        int size = height.size();
-        int left=0, right= size-1;
+        int left=0, right= height.size()-1;
         while(left<right)
         {
             width = right-left;
