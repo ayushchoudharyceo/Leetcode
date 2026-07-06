@@ -1,24 +1,28 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int n = height.size();
-        if (n < 3) {
-            return 0;
+        int n = height.size(), i=1;
+        if (n < 3) return 0;
+        int total_capacity = 0;
+        vector<int>prefix(n,0);
+        vector<int>suffix(n,0);
+        prefix[0] = height[0];
+        while(i<n) {
+            prefix[i] = max(prefix[i-1],height[i]);
+            i++;
+            }
+        suffix[n-1] = height [n-1];
+        i = n-2;
+        while(i>=0){
+            suffix[i] = max(suffix[i+1] , height [i]);
+            i--;
         }
-        vector<int> left_max(n);
-        vector<int> right_max(n);
-        int total_water = 0;
-        left_max[0] = height[0];
-        for (int i = 1; i < n; i++) {
-            left_max[i] = max(left_max[i - 1], height[i]);
+        i =1;
+        while(i<n-1)
+        {
+            total_capacity+=min(prefix[i],suffix[i]) - height[i];
+            i++;
         }
-        right_max[n - 1] = height[n - 1];
-        for (int i = n - 2; i >= 0; i--) {
-            right_max[i] = max(right_max[i + 1], height[i]);
-        }
-        for (int i = 0; i < n; i++) {
-            total_water += min(left_max[i], right_max[i]) - height[i];
-        }
-        return total_water;
+        return total_capacity;
     }
 };
