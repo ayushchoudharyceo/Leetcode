@@ -5,7 +5,7 @@ public:
       vector<int> result;
         for (int num : nums2) 
         {
-            if (set1.count(num)) 
+            if (set1.count(num)==1) 
             {
                 result.push_back(num);
                 set1.erase(num); 
