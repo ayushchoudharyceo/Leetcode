@@ -1,11 +1,15 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        if(s.size()!=t.size()){
-            return false;
+        unordered_map<char,int>m1,m2;
+        for(char i:s)
+        {
+            m1[i]++;
         }
-        unordered_multiset<char> setS(s.begin(), s.end());
-        unordered_multiset<char> setT(t.begin(), t.end());
-        return setS == setT;
+        for(char i :t)
+        {
+            m2[i]++;
+        }
+        return m1==m2;
     }
 };
