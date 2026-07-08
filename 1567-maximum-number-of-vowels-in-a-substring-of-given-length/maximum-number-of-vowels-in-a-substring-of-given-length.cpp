@@ -7,12 +7,15 @@ public:
     int maxVowels(string s, int k) {
         int wsum=0;
         int maxi = INT_MIN;
-        for(int i=0;i<k;i++)
+        int i=0;
+        while(i<k)
         {
             if(isVowel(s[i])) wsum++;
+            i++;
         }
         maxi = wsum;
-        for(int i=k; i<s.size();i++)
+        i=k;
+       while(i<s.size())
         {
             if(isVowel(s[i-k]))
             {
@@ -23,6 +26,7 @@ public:
                 wsum++;
             }
             maxi = max(maxi,wsum);
+            i++;
         }
         return maxi;
     }
