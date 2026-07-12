@@ -14,11 +14,9 @@ public:
             }
         }
         vector<int>result(arr.size());
-        int i=0;
-        while(i<arr.size())
+        for(int i =0 ;i<arr.size();i++)
         {
             result[i] = rank[arr[i]];
-            i++;
         }
         return result;
     }
