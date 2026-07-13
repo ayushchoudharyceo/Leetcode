@@ -1,18 +1,15 @@
 class Solution {
 public:
     int maximumWealth(vector<vector<int>>& accounts) {
-        int i=0,sum=0,maxi = INT_MIN;
-        while(i<accounts.size())
+        int sum=0,maxi = INT_MIN;
+        for (auto i:accounts)
         {
-            int j=0;
-            while(j<accounts[i].size())
+            for(auto j:i)
             {
-                sum+= accounts[i][j];
-                j++;
+                sum+= j;
             }
             maxi = max(sum,maxi);
             sum=0;
-            i++;
         }
         return maxi;
     }
