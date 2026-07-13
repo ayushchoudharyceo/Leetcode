@@ -7,7 +7,10 @@ public:
             int j=0,k=0;
             while(j<image[i].size())
             {
-                if(image[i][j] == 0) image[i][j]=1; 
+                if(image[i][j] == 0)
+                {
+                    image[i][j]=1;
+                }
                 else image[i][j] = 0;
                 j++;
             }
