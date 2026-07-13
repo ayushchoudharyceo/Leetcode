@@ -8,8 +8,8 @@ public:
        {
         int current = matrix[row][col];
         if(current == target) return true;
-        if(current>target) col--;
-        else row++;
+        if(current<target) row++;
+        else col--;
        }
        return false;
     }
