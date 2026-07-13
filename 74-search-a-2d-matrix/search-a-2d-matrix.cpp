@@ -4,15 +4,7 @@ public:
         int i=0;
         while(i<image.size())
         {
-            int j=0;
-            while(j<image[i].size())
-            {
-                if(image[i][j] == target)
-                {
-                    return true;
-                }
-                j++;
-            }
+            if(binary_search(image[i].begin(), image[i].end(), target)) return true;
             i++;
         }
         return false;
