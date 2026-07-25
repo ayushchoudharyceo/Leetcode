@@ -1,9 +1,7 @@
 class Solution {
 public:
     int maxProduct(int n) {
-        int maxDigit = 0;
-        int secondMaxDigit = 0;
-        
+        int maxDigit = 0, secondMaxDigit = 0;
         while (n > 0) {
             int digit = n % 10;
             if (digit > maxDigit) {
